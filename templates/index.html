@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Détection</title>
+    <!-- Lien correct vers le fichier CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Application de Détection d'Objets</h1>
+    </header>
+
+    <main>
+        <!-- Section pour démarrer la détection -->
+        <section class="start-detection">
+            <h2>Démarrer la Détection de Plastique</h2>
+            <form action="/start_detection" method="post">
+                <button type="submit">Démarrer la Détection</button>
+            </form>
+        </section>
+
+        <!-- Section de détection de plastique -->
+        <section class="plastic-detection">
+            <h2>Détection de Plastique</h2>
+            <div class="status">
+                <p>Status : 
+                    {% if plastic_detected %}
+                        <span style="color: green;">Plastique détecté</span>
+                    {% else %}
+                        <span style="color: red;">Aucun plastique détecté</span>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="image-display">
+                {% if plastic_detected %}
+                    <h3>Image Capturée</h3>
+                    <img src="{{ captured_image_url }}" alt="Image de détection" style="width: 100%; max-width: 500px;">
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- Section pour afficher l'historique des détections -->
+        <section class="detections">
+            <h2>Historique des Detections</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Message</th>
+                        <th>Horodatage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for detection in detections %}
+                    <tr>
+                        <td>{{ detection['id'] }}</td>
+                        <td>{{ detection['message'] }}</td>
+                        <td>{{ detection['timestamp'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section pour envoyer des commandes -->
+        <section class="commands">
+            <h2>Envoyer une Commande</h2>
+            <form action="/send_command" method="post">
+                <label for="command">Commande :</label>
+                <select name="command" id="command">
+                    <option value="open_door"></option>
+                
+                    <option value="trigger_alarm">Déclencher une Alarme</option>
+                </select>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Application de Détection d'Objets</p>
+    </footer>
+</body>
+</html>

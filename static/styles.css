@@ -1,0 +1,144 @@
+/* Réinitialisation des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Section pour démarrer la détection */
+.start-detection {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.start-detection button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-detection button:hover {
+    background-color: #0056b3;
+}
+
+/* Section de détection de plastique */
+.plastic-detection {
+    margin-bottom: 2rem;
+}
+
+.plastic-detection .status {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.plastic-detection .status span {
+    font-weight: bold;
+}
+
+.plastic-detection .image-display {
+    text-align: center;
+}
+
+.plastic-detection .image-display img {
+    width: 100%;
+    max-width: 600px;
+    border: 5px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Historique des détections */
+.detections table {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+}
+
+.detections th, .detections td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+}
+
+.detections th {
+    background-color: #007bff;
+    color: white;
+}
+
+.detections tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.detections tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Section de commandes */
+.commands {
+    text-align: center;
+}
+
+.commands form {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.commands select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.commands button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.commands button:hover {
+    background-color: #0056b3;
+}
+
+/* Pied de page */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
